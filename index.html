@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom Colors */
+    .standard-blue { background-color: #0968b8; color: #efefef}
+    .med-blue { background-color: #478eca; }
+    .highlight-blue { background-color: #c1d9ed;}
+  </style>
+</head>
+<body>
+<div class="container">
+
+    <form id="myForm">
+        
+        <h2>Patient Information Form</h2>
+
+        <div class="row" id="row1">
+
+            <div class="col-sm-2 form-group" id="phoneDiv">
+                <label for="phone">Phone*</label>
+                <input type="tel" class="form-control" id="phone" required>
+            </div><!-- phoneDiv -->
+
+            <div class="col-sm-2 form-group" id="dobDiv">
+                <label for="dob">DOB*</label>
+                <input type="date" class="form-control" id="dob" required>
+            </div><!-- dobDiv -->
+
+            <div class="col-sm-2 form-group" id="ptLastNameDiv">
+                <label for="ptLastName">PT LN*</label>
+                <input type="text" class="form-control" id="ptLastName" required>
+            </div><!-- ptLastNameDiv -->
+
+            <div class="col-sm-2 form-group" id="ptFirstNameDiv" style="display: none;">
+                <label for="ptFirstName">PT FN*</label>
+                <input type="text" class="form-control" id="ptFirstName" required>
+            </div><!-- ptFirstNameDiv -->
+
+            <div class="col-sm-2 form-group" id="ptBiologicalSexDiv" style="display: none;">
+                <label for="sex">Biological Sex</label>
+                <select class="form-control" id="sex">
+                    <option value="">Select</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div><!-- ptBiologicalSexDiv-->
+            </div><!-- #row1 -->
+
+            <div class="row">
+
+                <div class="col-sm-10 form-group" id="nextButtonDiv">
+                    <button type="submit" class="btn btn-primary" id="nextButton">Next</button>
+                </div><!-- nextButtonDiv -->
+
+            </div><!-- #row1 -->
+
+        <div class="row" id="row2">
+            <div class="col-sm-2 form-group" id="patientCallerDiv" style="display: none;">
+                <label>Caller is the Patient?</label>
+                <select class="form-control" id="patientCaller">
+                    <option value="">Select</option>
+                    <option value="Patient">Yes</option>
+                    <option value="Caller">No</option>
+                </select>
+            </div><!-- patientCallerDiv -->
+
+            <div class="col-sm-2 form-group" id="callerLastNameDiv" style="display: none;">
+                <label for="callerLastName">Caller Last Name</label>
+                <input type="text" class="form-control" id="callerLastName">
+            </div><!-- callerLastNameDiv -->
+
+            <div class="col-sm-2 form-group" id="callerFirstNameDiv" style="display: none;">
+                <label for="callerFirstName">Caller First Name</label>
+                <input type="text" class="form-control" id="callerFirstName">
+            </div><!-- callerFirstNameDiv -->
+
+            <div class="col-sm-2 form-group" id="callerRelationshipDiv" style="display: none;">
+                <label for="callerRelationship">Caller Relationship</label>
+                <input type="text" class="form-control" id="callerRelationship">
+            </div><!-- callerRelationshipDiv -->
+
+            <div class="col-sm-2 form-group" id="ptLocationDiv" style="display: none;">
+                <label>PT Current Location</label>
+                <select class="form-control" id="ptLocation">
+                    <option value="">Select State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                </select>
+            </div><!-- ptLocationDiv -->
+
+            <div class="col-sm-2 form-group" id="submitButtonDiv"  style="display: none;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div><!-- submitButtonDiv -->
+
+        </div><!-- #row2 -->
+
+    </form>
+
+    <div id="confirmModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation</h5>        
+                </div>
+
+                <div class="modal-body">
+                    <p>Are you sure you want to continue?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="btnConfirm">Confirm</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- .container -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="form-script.js"></script> </body>
+</html>
