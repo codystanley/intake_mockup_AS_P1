@@ -1,4 +1,4 @@
-let showModal = true; // Activate/Deactive the search modal
+let showModal = false; // Activate/Deactive the search modal
 
 $(document).ready(function() {
     // Initially hide the fields
@@ -27,7 +27,7 @@ $(document).ready(function() {
             // Confirmation Modal "Confirm" button handler
             $("#btnConfirm").click(function() {
                 $("#confirmModal").modal('hide'); // Hide the modal
-                $("#nextButtonDiv").hide();
+                $("#nextButtonRow").hide();
                 $("#ptFirstNameDiv").show();
                 $("#ptBiologicalSexDiv").show();
                 $("#patientCallerDiv").show();
@@ -39,7 +39,7 @@ $(document).ready(function() {
             })
         }   else {
                 // "Next" button click handler
-                $("#nextButtonDiv").hide();
+                $("#nextButtonRow").hide();
                 $("#ptFirstNameDiv").show();
                 $("#ptBiologicalSexDiv").show();
                 $("#patientCallerDiv").show();
