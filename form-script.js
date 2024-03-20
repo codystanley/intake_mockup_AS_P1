@@ -11,6 +11,14 @@ $(document).ready(function() {
     $("#ptLocationDiv").hide();
     $("#submitButtonDiv").hide();
 
+    // Update showModal based on initial checkbox state
+    showModal = $('#showModalCheckbox').is(':checked');
+
+    // Event listener for the checkbox
+    $('#showModalCheckbox').change(function() {
+    showModal = $(this).is(':checked');
+    });
+
     // "Next" button click handler
     $("#nextButton").click(function() {
         if(showModal) {
