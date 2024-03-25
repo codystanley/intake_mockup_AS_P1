@@ -2,8 +2,8 @@ let showModal = false; // Activate/Deactive the search modal
 
 $(document).ready(function() {
     // Initially hide the fields
-    $("#dobDiv").hide();
-    $("#ptLastNameDiv").hide();
+    //$("#dobDiv").hide();
+    //$("#ptLastNameDiv").hide();
     $("#ptFirstNameDiv").hide();
     $("#ptBiologicalSexDiv").hide();
     $("#patientCallerDiv").hide();
