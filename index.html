@@ -17,12 +17,28 @@
 
         <form id="myForm">
 
-            <div class="row row-cols-1 row-cols-lg-5 py-2" id="showModalRow">
-                <div class="col-lg-5 gy-2 form-check" id="showModalCol">
-                    <input type="checkbox" class="form-check-input" id="showModalCheckbox"> 
-                    <label for="showModalCheckbox" class="form-check-label">Show Model with Search Results</label>
-                </div><!-- showModalCol -->
-            </div><!-- #formCheckRow -->
+            <div class="row row-cols-1 row-cols-lg-5 py-2" id="configRow">
+                <div class="col-lg-5 gy-2 form-check" id="configHeader">
+                    <h4>Configuration</h4>
+                    <p>Select the options below to see how each scenario affects the user interface.</p>
+                </div>
+                <div class="col-lg-5 gy-2 form-check" id="configPhoneDiv">
+                    <input type="checkbox" class="form-check-input" id="configPhoneCheckbox"> 
+                    <label for="configPhoneCheckbox" class="form-check-label">Connected to Phone Datadase</label>
+                </div><!-- #configPhoneDiv-->
+                <div class="col-lg-5 gy-2 form-check" id="configPhoneResultsDiv">
+                    <input type="checkbox" class="form-check-input" id="configPhoneResultsCheckbox"> 
+                    <label for="configPhoneResultsCheckbox" class="form-check-label">Phone Number in Database</label>
+                </div><!-- #configPhoneResultsDiv-->
+                <div class="col-lg-5 gy-2 form-check" id="configPatientDiv">
+                    <input type="checkbox" class="form-check-input" id="configPatientCheckbox"> 
+                    <label for="configPatientCheckbox" class="form-check-label">Connected to Patient Database</label>
+                </div><!-- configPatientDiv -->
+                <div class="col-lg-5 gy-2 form-check" id="configPatientResultsDiv">
+                    <input type="checkbox" class="form-check-input" id="configPatientResultsCheckbox"> 
+                    <label for="configPatientCheckbox" class="form-check-label">Patient is in Database</label>
+                </div><!-- configPatientDiv -->
+            </div><!-- #configRow -->
 
             <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2" id="formRow1">
                 <div class="col form-group" id="phoneDiv">
