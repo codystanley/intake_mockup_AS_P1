@@ -1,3 +1,15 @@
+/**
+ * This script controls the behavior of a form, including showing and hiding fields based on user interactions.
+ * It also handles the activation and deactivation of a search modal.
+ *
+ * @file This file contains the JavaScript code for the form script.
+ * @summary Controls the behavior of a form and manages the search modal.
+ * @description The script initializes the form by hiding certain fields and setting up event listeners.
+ * It also handles the "Next" button click event, showing the search modal if necessary, and updating the visibility of fields accordingly.
+ * @requires jQuery
+ * @version 1.0
+ * @since 2022-10-01
+ */
 let showModal = false; // Activate/Deactive the search modal
 
 $(document).ready(function() {
