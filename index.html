@@ -11,55 +11,79 @@
   </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 3rem; margin-bottom: 3rem;">
 
-        <h2>Patient Intake Form</h2>
+        <h2 style="text-align: center; color: #0968b8;">Patient Intake Form</h2>
 
         <form id="myForm">
 
-            <div class="row row-cols-1 row-cols-lg-5 py-2" id="configRow">
-                <div class="col-12 gy-2 form-check" id="configHeader">
+            <!--------------------------->
+            <!-- CONFIGURATION OPTIONS -->
+            <!--------------------------->
+            
+            <div class="row row-cols-1 row-cols-lg-12 py-2" id="configRow" style="background-color: #d2d2d2; padding: 1rem;">
+                <div class="col-12 gy-2 form-check" id="configHeader" style="margin-bottom: 1rem;">
                     <h4>Configuration</h4>
                     <p>Select the options below to see how each scenario affects the user interface.</p>
                 </div><!-- #configHeader -->
-                <div class="col-lg-2 gy-2 form-check" id="configPhoneDiv">
+
+                <div class="col-lg-3 gy-2 form-check" id="configPhoneDiv">
                     <input type="checkbox" class="form-check-input" id="configPhoneCheckbox"> 
                     <label for="configPhoneCheckbox" class="form-check-label">Connected to Phone Datadase</label>
                 </div><!-- #configPhoneDiv-->
-                <div class="col-lg-2 gy-2 form-check" id="configPhoneResultsDiv">
+
+                <div class="col-lg-3 gy-2 form-check" id="configPhoneResultsDiv">
                     <input type="checkbox" class="form-check-input" id="configPhoneResultsCheckbox"> 
                     <label for="configPhoneResultsCheckbox" class="form-check-label">Phone Number in Database</label>
                 </div><!-- #configPhoneResultsDiv-->
-                <div class="col-lg-2 gy-2 form-check" id="configPatientDiv">
+
+                <div class="col-lg-3 gy-2 form-check" id="configPatientDiv">
                     <input type="checkbox" class="form-check-input" id="configPatientCheckbox"> 
                     <label for="configPatientCheckbox" class="form-check-label">Connected to Patient Database</label>
                 </div><!-- configPatientDiv -->
-                <div class="col-lg-2 gy-2 form-check" id="configPatientResultsDiv">
+
+                <div class="col-lg-3 gy-2 form-check" id="configPatientResultsDiv">
                     <input type="checkbox" class="form-check-input" id="configPatientResultsCheckbox"> 
                     <label for="configPatientCheckbox" class="form-check-label">Patient is in Database</label>
                 </div><!-- configPatientDiv -->
             </div><!-- #configRow -->
 
-            <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2" id="formRow1">
+            <!---------------------->
+            <!-- FIRST ROW INPUTS -->
+            <!---------------------->
+
+            <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2" id="formRow1" style="margin-top: 1rem;">
                 <div class="col form-group" id="phoneDiv">
                     <label for="phone">Phone*</label>
-                    <input type="tel" class="form-control" id="phone" required>
-                </div><!-- #phoneDiv --> <!-- Calculate age -->
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" class="form-control" id="phone" required>
+                </div><!-- #phoneDiv -->
+                <!-- Calculate age -->
+                <div class="col form-group" id="nextPhoneButtonDiv">
+                    <button type="submit" class="btn btn-primary standard-blue" id="nextPhoneButton">Next</button>
+                </div><!-- nextButtonDiv -->
+
                 <div class="col form-group" id="dobDiv">
                     <label for="dob">Date of Birth* (Age: )</label>
                     <input type="date" class="form-control" id="dob" required>
                 </div><!-- #dobDiv -->
+
                 <div class="col form-group" id="ptLastNameDiv">
                     <label for="ptLastName">Patient Last Name*</label>
                     <input type="text" class="form-control" id="ptLastName" required>
                 </div><!-- ptLastNameDiv -->
+
+                <div class="col form-group" id="nextPatientButtonDiv">
+                    <button type="submit" class="btn btn-primary standard-blue" id="nextPatientButton">Next</button>
+                </div><!-- nextPatientButtonDiv -->
+
                 <div class="col form-group" id="ptFirstNameDiv" style="display: none;">
                     <label for="ptFirstName">Patient First Name*</label>
                     <input type="text" class="form-control" id="ptFirstName" required>
                 </div><!-- ptFirstNameDiv -->
+
                 <div class="col form-group" id="ptBiologicalSexDiv" style="display: none;">
                     <label for="sex">Biological Sex</label>
-                    <select class="form-control" id="sex">
+                    <select class="form-control" id="ptBiologicSex">
                         <option value="">Select</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
@@ -67,15 +91,13 @@
                 </div><!-- ptBiologicalSexDiv-->
             </div><!-- #formRow1 -->
 
-            <div class="row row-cols-1 row-cols-md-3 justify-content-end gy-2" id="nextButtonRow">
-                <div class="col-3 form-group" id="nextButtonDiv">
-                    <button type="submit" class="btn btn-primary standard-blue" id="nextButton">Next</button>
-                </div><!-- nextButtonDiv -->
-            </div><!-- #nextButtonRow -->
+            <!----------------------->
+            <!-- SECOND ROW INPUTS -->
+            <!----------------------->
 
-            <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2" id="formRow2">
+            <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2" id="formRow2" style="margin-top: 1rem;">
                 <div class="col form-group" id="patientCallerDiv" style="display: none;">
-                    <label>Caller is the Patient?</label>
+                    <label>Is the Caller the Patient?</label>
                     <select class="form-control" id="patientCaller">
                         <option value="">Select</option>
                         <option value="Patient">Yes</option>
@@ -100,6 +122,54 @@
                         <option value="">Select State</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
                     </select>
                 </div><!-- #ptLocationDiv -->
             </div><!-- #formRow2 -->
@@ -112,7 +182,16 @@
 
         </form>
 
-        <div id="confirmModal" class="modal fade" tabindex="-1">
+        <!------------------------>
+        <!-- PHONE SEARCH MODAL -->
+        <!------------------------>
+
+        <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div id="confirmPhoneModal" class="modal fade" tabindex="-1">
+
             <div class="modal-dialog">
             <div class="modal-content">
 
@@ -121,19 +200,73 @@
                     </div>
 
                     <div class="modal-body">
-                        <p>Are you sure you want to continue?</p>
+
+                        <div class="row">
+                            <div class="col">
+                                <span>John Doe</span>
+                            </div>
+                            <div class="col">
+                                <span>01/01/2000</span>
+                            </div>
+                            <div class="col">
+                                <span>Male</span>
+                            </div>
+                        </div>
+
+                        <p>Confirm this patient?</p>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" id="btnConfirm">Confirm</button>
+                        <button type="button" class="btn btn-primary" id="phoneBtnConfirm">Confirm</button>
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </div><!-- #confirmPhoneModal -->
+
+        <!-------------------------->
+        <!-- PATEINT SEARCH MODAL -->
+        <!-------------------------->
+
+        <div id="confirmPatientModal" class="modal fade" tabindex="-1">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmation</h5>        
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <span>Jane Doe</span>
+                            </div>
+                            <div class="col">
+                                <span><01/01/2020></span>
+                            </div>
+                            <div class="col">
+                                <span>Female</span>
+                            </div>
+                        </div>
+
+                        <p>Confirm this patient?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="patientBtnConfirm">Confirm</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div><!-- #confirmPatientModal -->
 
     </div><!-- .container -->
 
