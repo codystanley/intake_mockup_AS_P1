@@ -4,8 +4,8 @@
  * It handles the visibility of form fields based on checkbox states and button clicks.
  * The script also includes event listeners for checkbox changes and button clicks.
  * 
- * @file This file is located at /Users/codystanley/Documents/apps/intake_mockup_AS_P1/form-script.js
- * @version 1.0.0
+ * @file This file is located at /form-script.js
+ * @version 1.1.0
  */
 
 // Set checkbox configurations to false.
