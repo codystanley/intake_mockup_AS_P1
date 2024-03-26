@@ -27,6 +27,7 @@ $(document).ready(function()
     $("#callerFirstNameDiv").hide();
     $("#callerRelationshipDiv").hide();
     $("#ptLocationDiv").hide();
+    $("#complaintDiv").hide();
     $("#submitButtonDiv").hide();
 
     // Update configuration based on initial checkbox states
@@ -78,14 +79,15 @@ $(document).ready(function()
                 $("#callerFirstNameDiv").show();
                 $("#callerRelationshipDiv").show();
                 $("#ptLocationDiv").show();
+                $("#complaintDiv").show();
                 $("#submitButtonDiv").show();
 
                 // Add dummy data
-                $("#dob").val("01/01/2000");
+                $("#dob").val("2000-01-01");
+                $("#dob").change();
                 $("#ptLastName").val("Doe");
                 $("#ptFirstName").val("John");
                 $("#ptBiologicSex").val("M");
-                $("#ptLocation").val("NY");
                 $("#patientCaller").focus();
             });
         } else
@@ -118,14 +120,12 @@ $(document).ready(function()
                 $("#callerFirstNameDiv").show();
                 $("#callerRelationshipDiv").show();
                 $("#ptLocationDiv").show();
+                $("#complaintDiv").show();
                 $("#submitButtonDiv").show();
 
                 // Add dummy data
-                $("#dob").val("01/01/2020");
-                $("#ptLastName").val("Doe");
                 $("#ptFirstName").val("Jane");
                 $("#ptBiologicSex").val("F");
-                $("#ptLocation").val("FL");
                 $("#patientCaller").focus();
             });
         } else
@@ -143,8 +143,25 @@ $(document).ready(function()
                 $("#callerFirstNameDiv").show();
                 $("#callerRelationshipDiv").show();
                 $("#ptLocationDiv").show();
+                $("#complaintDiv").show();
                 $("#submitButtonDiv").show();
         }
+    });
+
+    $("#dob").change(function() {
+        // Get the entered date
+        var dob = new Date($(this).val());
+    
+        // Calculate the age
+        var today = new Date();
+        var age = today.getFullYear() - dob.getFullYear();
+        var m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+    
+        // Update the label
+        $("label[for='dob']").text("Date of Birth* (Age: " + age + ")");
     });
 
     /**
