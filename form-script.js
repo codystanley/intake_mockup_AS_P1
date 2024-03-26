@@ -44,6 +44,10 @@ $(document).ready(function()
     $('#configPhoneResultsCheckbox').change(function() {
         phoneResult = $(this).is(':checked');
 
+        // Set #configPhoneCheckbox to checked
+        $('#configPhoneCheckbox').prop('checked', true);
+        phoneDatabase = true;
+
         // If the #configPhoneResultsCheckbox checkbox is checked, disable the #configPatientResultsCheckbox checkbox
         if (phoneResult) {
             $('#configPatientResultsCheckbox').prop('disabled', true);
@@ -59,6 +63,10 @@ $(document).ready(function()
 
     $('#configPatientResultsCheckbox').change(function(){
         patientResult = $(this).is(':checked');
+
+        // Set #configPhoneCheckbox to checked
+        $('#configPatientCheckbox').prop('checked', true);
+        patientDatabase = true;
     });
 
 
@@ -74,8 +82,7 @@ $(document).ready(function()
      */
 
     $("#nextPhoneButton").click(function() {
-        $("#configRow").hide();
-        
+
         if(phoneDatabase && phoneResult)
         {
             // Show the modal
@@ -257,11 +264,20 @@ $(document).ready(function()
     $("#patientCaller").change(function() {
 
         if ($(this).val() === "Patient") {
-            $("#callerLastName").val("same");
-            $("#callerFirstName").val("same");
-            $("#callerRelationship").val("same");
+            $("#callerLastName").val("Same");
+            $("#callerFirstName").val("Same");
+            $("#callerRelationship").val("Same");
+            $('#callerLastName').prop('disabled', true);
+            $('#callerFirstName').prop('disabled', true);
+            $('#callerRelationship').prop('disabled', true);
+        }   else {
+            $("#callerLastName").val("");
+            $("#callerFirstName").val("");
+            $("#callerRelationship").val("");
+            $('#callerLastName').prop('disabled', false);
+            $('#callerFirstName').prop('disabled', false);
+            $('#callerRelationship').prop('disabled', false);
         }
-
     });
 
 })
