@@ -58,7 +58,17 @@ $(document).ready(function()
     });
 
 
-    // "Next" after phone number entry.
+    /**
+     * Event handler for the 'click' event of the '#nextPhoneButton' button.
+     *
+     * When the button is clicked, this function checks if both 'phoneDatabase' and 'phoneResult' are true.
+     * If they are, it shows the '#confirmPhoneModal' modal and sets up a click event handler for the '#phoneBtnConfirm' button.
+     * The '#phoneBtnConfirm' button's click event handler hides the modal, shows and hides various elements, and sets some dummy data.
+     * If 'phoneDatabase' and 'phoneResult' are not both true, it hides the '#nextPhoneButtonDiv' div and shows the '#dobDiv' and '#ptLastNameDiv' divs.
+     *
+     * @listens #nextPhoneButton:click
+     */
+
     $("#nextPhoneButton").click(function()
     {
         if(phoneDatabase && phoneResult)
@@ -99,7 +109,16 @@ $(document).ready(function()
         }
     });
 
-    // "Next Patient" button click handler
+    /**
+     * Event handler for the 'click' event of the '#nextPatientButton' button.
+     *
+     * When the button is clicked, this function checks if both 'patientDatabase' and 'patientResult' are true.
+     * If they are, it shows the '#confirmPatientModal' modal and sets up a click event handler for the '#patientBtnConfirm' button.
+     * The '#patientBtnConfirm' button's click event handler hides the modal, shows and hides various elements, and sets some dummy data.
+     * If 'patientDatabase' and 'patientResult' are not both true, it hides the '#nextPatientButtonDiv' div and shows the '#dobDiv', '#ptLastNameDiv', '#ptFirstNameDiv', '#ptBiologicalSexDiv', '#patientCallerDiv', '#callerLastNameDiv', '#callerFirstNameDiv', '#callerRelationshipDiv', '#ptLocationDiv', '#complaintDiv', and '#submitButtonDiv' divs.
+     *
+     * @listens #nextPatientButton:click
+     ***************************************/
     $("#nextPatientButton").click(function()
     {
         if(patientDatabase && patientResult)
@@ -148,6 +167,14 @@ $(document).ready(function()
         }
     });
 
+    /**
+     * Event handler for the 'change' event of the '#dob' input element.
+     *
+     * When a date is entered, this function calculates the age based on the entered date
+     * and updates the label with the calculated age.
+     *
+     * @listens #dob:change
+     */
     $("#dob").change(function() {
         // Get the entered date
         var dob = new Date($(this).val());
