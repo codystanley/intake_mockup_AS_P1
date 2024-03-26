@@ -73,8 +73,9 @@ $(document).ready(function()
      * @listens #nextPhoneButton:click
      */
 
-    $("#nextPhoneButton").click(function()
-    {
+    $("#nextPhoneButton").click(function() {
+        $("#configRow").hide();
+        
         if(phoneDatabase && phoneResult)
         {
             // Show the modal

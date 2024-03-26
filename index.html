@@ -5,9 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container" style="margin-top: 3rem; margin-bottom: 3rem;">
-
-        <h2 style="text-align: center; color: #0968b8;">Patient Intake Form</h2>
+    <div class="container rounded-3" style="margin-top: 3rem; margin-bottom: 3rem; border: 0.2rem solid #0968b8;">
 
         <form id="myForm">
 
@@ -20,6 +18,7 @@
                 <div class="col-12 gy-2 form-check" id="configHeader">
                     <h4>Configuration</h4>
                     <p>Select the options below to see how each scenario affects the user interface.</p>
+                    <p>Use 'refresh' to start over.</p>
                 </div><!-- #configHeader -->
 
                 <div class="col-lg-3 gy-2 form-check" id="configPhoneDiv">
@@ -43,6 +42,12 @@
                 </div><!-- configPatientDiv -->
             </div><!-- #configRow -->
 
+            <div class="row" style="margin-top: 0.5rem;">
+                <div class="col">
+                    <h2 style="text-align: center; color: #0968b8;">Patient Intake Form</h2>
+                </div>
+            </div>
+
             <!---------------------->
             <!-- FIRST ROW INPUTS -->
             <!---------------------->
@@ -50,7 +55,7 @@
             <div class="row row-cols-1 row-cols-lg-5 gy-2 py-2 align-items-center" id="formRow1" style="margin-top: 1rem;">
                 <div class="col form-group" id="phoneDiv">
                     <label for="phone">Phone*</label>
-                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" class="form-control" id="phone" required>
+                    <input type="tel" value="123-123-1234" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="000-000-0000" class="form-control" id="phone" required>
                 </div><!-- #phoneDiv -->
 
                 <!-- Calculate age -->
