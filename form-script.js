@@ -37,23 +37,27 @@ $(document).ready(function()
     patientResult = $('#configPatientResultsCheckbox').is(':checked');
 
     // Event listeners for the Phone Database checkboxes
-    $('#configPhoneCheckbox').change(function()
-    {
+    $('#configPhoneCheckbox').change(function() {
         phoneDatabase = $(this).is(':checked');
     });
 
-    $('#configPhoneResultsCheckbox').change(function()
-    {
+    $('#configPhoneResultsCheckbox').change(function() {
         phoneResult = $(this).is(':checked');
+
+        // If the #configPhoneResultsCheckbox checkbox is checked, disable the #configPatientResultsCheckbox checkbox
+        if (phoneResult) {
+            $('#configPatientResultsCheckbox').prop('disabled', true);
+        } else {
+            // Otherwise, enable the #configPatientResultsCheckbox checkbox
+            $('#configPatientResultsCheckbox').prop('disabled', false);
+        }
     });
 
-    $('#configPatientCheckbox').change(function()
-    {
+    $('#configPatientCheckbox').change(function() {
         patientDatabase = $(this).is(':checked');
     });
 
-    $('#configPatientResultsCheckbox').change(function()
-    {
+    $('#configPatientResultsCheckbox').change(function(){
         patientResult = $(this).is(':checked');
     });
 
@@ -73,7 +77,14 @@ $(document).ready(function()
     {
         if(phoneDatabase && phoneResult)
         {
-            $("#confirmPhoneModal").modal('show');
+            // Show the modal
+            $('#searchPhoneModal').modal('show');
+
+            // Set a timeout to hide the modal after 2 seconds (2000 milliseconds)
+            setTimeout(function() {
+                $('#searchPhoneModal').modal('hide');
+                $("#confirmPhoneModal").modal('show');
+            }, 2000);
 
             // Confirm phone number patient button handler
             $("#phoneBtnConfirm").click(function() {
@@ -100,8 +111,22 @@ $(document).ready(function()
                 $("#ptBiologicSex").val("M");
                 $("#patientCaller").focus();
             });
-        } else
+        } else if(phoneDatabase && !phoneResult)
         {
+            // Show the modal
+            $('#searchPhoneModal').modal('show');
+
+            // Set a timeout to hide the modal after 3 seconds (3000 milliseconds)
+            setTimeout(function() {
+                $('#searchPhoneModal').modal('hide');
+                $("#dob").focus();
+            }, 3000);
+
+            $("#nextPhoneButtonDiv").hide();
+            $("#dobDiv").show();
+            $("#ptLastNameDiv").show();
+            $("#nextPatientButtonDiv").show();
+        } else {
             $("#nextPhoneButtonDiv").hide();
             $("#dobDiv").show();
             $("#ptLastNameDiv").show();
@@ -121,9 +146,15 @@ $(document).ready(function()
      ***************************************/
     $("#nextPatientButton").click(function()
     {
-        if(patientDatabase && patientResult)
-        {
-            $("#confirmPatientModal").modal('show'); // Show the modal
+        if(patientDatabase && patientResult) {
+            // Show the modal
+            $('#searchPatientModal').modal('show');
+
+            // Set a timeout to hide the modal after 3 seconds (3000 milliseconds)
+            setTimeout(function() {
+                $('#searchPatientModal').modal('hide');
+                $("#confirmPatientModal").modal('show'); // Show the modal
+            }, 2000);
 
             // Confirmation Modal "Confirm" button handler
             $("#patientBtnConfirm").click(function() {
@@ -147,10 +178,18 @@ $(document).ready(function()
                 $("#ptBiologicSex").val("F");
                 $("#patientCaller").focus();
             });
-        } else
-        {
-            // "Next" button click handler
-            $("#confirmPatientModal").modal('hide');
+        }   else if(patientDatabase && !patientResult) {
+                // Show the modal
+                $('#searchPatientModal').modal('show');
+
+                // Set a timeout to hide the modal after 3 seconds (3000 milliseconds)
+                setTimeout(function() {
+                    $('#searchPatientModal').modal('hide');
+                    $("#ptFirstName").focus();
+                }, 2000);
+
+                // "Next" button click handler
+                $("#confirmPatientModal").modal('hide');
                 $("#nextPhoneButtonDiv").hide();
                 $("#dobDiv").show();
                 $("#ptLastNameDiv").show();
@@ -164,7 +203,22 @@ $(document).ready(function()
                 $("#ptLocationDiv").show();
                 $("#complaintDiv").show();
                 $("#submitButtonDiv").show();
-        }
+        }   else {
+                $("#confirmPatientModal").modal('hide');
+                $("#nextPhoneButtonDiv").hide();
+                $("#dobDiv").show();
+                $("#ptLastNameDiv").show();
+                $("#nextPatientButtonDiv").hide();
+                $("#ptFirstNameDiv").show();
+                $("#ptBiologicalSexDiv").show();
+                $("#patientCallerDiv").show();
+                $("#callerLastNameDiv").show();
+                $("#callerFirstNameDiv").show();
+                $("#callerRelationshipDiv").show();
+                $("#ptLocationDiv").show();
+                $("#complaintDiv").show();
+                $("#submitButtonDiv").show();
+            }
     });
 
     /**
