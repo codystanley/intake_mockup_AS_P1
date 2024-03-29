@@ -114,7 +114,7 @@ $(document).ready(function()
                 // Add dummy data
                 $("#dob").val("2000-01-01");
                 $("#dob").change();
-                $("#ptLastName").val("Doe");
+                $("#ptLastName").val("Rah");
                 $("#ptFirstName").val("John");
                 $("#ptBiologicSex").val("M");
                 $("#patientCaller").focus();
